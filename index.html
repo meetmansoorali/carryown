@@ -82,7 +82,7 @@
             display: none;
         }
 
-     
+      
 
         body {
             font-family: 'Inter', sans-serif;
@@ -893,10 +893,8 @@
     </div>
 
     <div class="vignette-ambient-glow"></div>
-    <div class="cursor-light-source" id="cursorLight"></div>
 
-    <div class="cursor-core" id="cursorCore"></div>
-    <div class="cursor-frame" id="cursorFrame"></div>
+
 
     <a href="#capabilities" class="kinetic-scroll-trigger">
         <div class="scroll-wheel-icon"></div>
@@ -1143,38 +1141,7 @@
     </footer>
  <!-- JavaScript Controllers -->
     <script>
-        // Custom Mouse Tracker & Ambient Light
-        const core = document.getElementById('cursorCore');
-        const frame = document.getElementById('cursorFrame');
-        const cursorLight = document.getElementById('cursorLight');
-
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-        let frameX = mouseX;
-        let frameY = mouseY;
-
-        window.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            core.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
-            cursorLight.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
-        });
-
-        function renderCreativeCursor() {
-            frameX += (mouseX - frameX) * 0.18;
-            frameY += (mouseY - frameY) * 0.18;
-            const isHovering = document.body.classList.contains('cursor-hovering');
-            const rotation = isHovering ? 'rotate(45deg)' : 'rotate(0deg)';
-            frame.style.transform = `translate(${frameX}px, ${frameY}px) translate(-50%, -50%) ${rotation}`;
-            requestAnimationFrame(renderCreativeCursor);
-        }
-        renderCreativeCursor();
-
-        const interactables = document.querySelectorAll('a, button, input, textarea, select, [role="button"]');
-        interactables.forEach(el => {
-            el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hovering'));
-            el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hovering'));
-        });
+     
 
         // Carousel Controller
         const track = document.getElementById('carouselTrack');
